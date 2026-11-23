@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Memorice Matemático</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <header>
+        <h1>🧠 Memorice Matemático</h1>
+        <p>¡Encuentra las parejas y desafía tu mente!</p>
+    </header>
+
+    <main>
+        <section id="configuracion">
+            <label for="cantidadJugadores">Jugadores:</label>
+            <select id="cantidadJugadores">
+                <option value="2">2 jugadores</option>
+                <option value="3">3 jugadores</option>
+                <option value="4">4 jugadores</option>
+            </select>
+
+            <label for="dificultad">Dificultad:</label>
+            <select id="dificultad">
+                <option value="facil">Fácil — 16 cartas</option>
+                <option value="medio">Medio — 24 cartas</option>
+                <option value="dificil">Difícil — 40 cartas</option>
+                <option value="secreta" disabled>Secreta — 60 cartas 🔒</option>
+            </select>
+
+            <button id="comenzar">Comenzar partida</button>
+        </section>
+
+        <section class="accesos-extra" aria-label="Opciones adicionales">
+            <button id="abrirTienda" type="button">🎨 Tienda</button>
+            <button id="abrirRuleta" type="button">🎡 Ruleta diaria</button>
+            <strong id="saldoCreditos">💎 Créditos: 0</strong>
+        </section>
+
+        <section id="tienda" class="panel-extra" hidden>
+            <div class="encabezado-panel">
+                <h2>🎨 Tienda de colores</h2>
+                <button id="cerrarTienda" class="boton-cerrar" type="button" aria-label="Cerrar tienda">✕</button>
+            </div>
+
+            <p>Compra colores con créditos, y equípalos en el reverso o el frente de tus cartas.</p>
+
+            <h3>Reverso de las cartas</h3>
+            <div id="catalogoReverso" class="catalogo-colores"></div>
+
+            <h3>Frente de las cartas</h3>
+            <div id="catalogoFrente" class="catalogo-colores"></div>
+
+            <div class="recarga-creditos">
+                <h3>💳 Comprar créditos</h3>
+                <p>Las compras con dinero real todavía no están habilitadas. Esta versión funciona sin pagos y guarda el saldo en este dispositivo.</p>
+                <button type="button" disabled>Próximamente</button>
+            </div>
+
+            <p id="estadoTienda" class="estado-panel" aria-live="polite"></p>
+        </section>
+
+        <section id="ruleta" class="panel-extra" hidden>
+            <div class="encabezado-panel">
+                <h2>🎡 Ruleta diaria</h2>
+                <button id="cerrarRuleta" class="boton-cerrar" type="button" aria-label="Cerrar ruleta">✕</button>
+            </div>
+
+            <p>Una tirada gratis cada día. ¡El premio principal es el color Galaxia!</p>
+
+            <div class="ruleta-marco">
+                <div class="puntero-ruleta" aria-hidden="true"></div>
+                <div id="ruletaVisual" class="ruleta-visual" role="img" aria-label="Ruleta con imágenes de premios y probabilidades"></div>
+            </div>
+            <p class="leyenda-ruleta">Cada sección muestra su premio y la probabilidad real de conseguirlo.</p>
+            <button id="girarRuleta" type="button">Girar gratis</button>
+
+            <p id="resultadoRuleta" class="estado-panel" aria-live="polite">
+                Premios: 10, 20, 30, 50 o 100 créditos. Galaxia tiene 1% de probabilidad.
+            </p>
+        </section>
+
+        <p id="racha">Racha: ningún ganador todavía</p>
+        <p id="mensaje"></p>
+
+        <section id="marcador"></section>
+
+        <h2 id="turno">¡Configura tu partida!</h2>
+
+        <section id="tablero"></section>
+
+        <button id="reiniciar">Nueva partida</button>
+    </main>
+
+    <script src="script.js"></script>
+</body>
+</html>
